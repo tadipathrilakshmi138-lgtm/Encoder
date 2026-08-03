@@ -1,0 +1,73 @@
+# 4-to-2 Encoder using Verilog HDL
+
+## Overview
+
+This project implements a **4-to-2 Encoder** using Verilog HDL.
+
+An encoder converts one active input line into a binary code at the output. In a 4-to-2 encoder, one of the four inputs (D0–D3) is active at a time, and the outputs (Y1, Y0) represent the binary equivalent of the active input.
+
+## Truth Table
+
+| D3 | D2 | D1 | D0 | Y1 | Y0 |
+|----|----|----|----|----|----|
+| 0 | 0 | 0 | 1 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 0 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 | 1 |
+
+## Logic Equations
+
+```
+Y1 = D2 + D3
+Y0 = D1 + D3
+```
+
+## Project Files
+
+- `encoder_4to2.v` – Verilog design
+- `encoder_4to2_tb.v` – Testbench
+- `simulation_output.txt` – Simulation results
+- `waveform.png` – Waveform screenshot
+
+## Simulation
+
+Compile the design:
+
+```bash
+iverilog -o encoder encoder_4to2.v encoder_4to2_tb.v
+```
+
+Run the simulation:
+
+```bash
+vvp encoder
+```
+
+(Optional) View waveform:
+
+```bash
+gtkwave waveform.vcd
+```
+
+## Expected Output
+
+```text
+D3 D2 D1 D0 | Y1 Y0
+--------------------
+0  0  0  1 |  0  0
+0  0  1  0 |  0  1
+0  1  0  0 |  1  0
+1  0  0  0 |  1  1
+```
+
+## Applications
+
+- Digital communication systems
+- Keyboard encoding
+- Interrupt controllers
+- Data compression
+- Digital system design
+
+## Author
+
+Your Name
